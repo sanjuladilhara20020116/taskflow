@@ -6,15 +6,12 @@ export default function AppHeader({
 }) {
   return (
     <header className="app-header">
-      <div className="brand-area">
-        <div className="brand-mark">TF</div>
-
-        <div>
-          <h1 className="brand-name">TaskFlow</h1>
-          <p className="brand-subtitle">
-            Personal productivity workspace
-          </p>
-        </div>
+      <div className="brand-area header-brand">
+        <img
+          src="/images/taskflow.png"
+          alt="TaskFlow logo"
+          className="header-logo-image"
+        />
       </div>
 
       <div className="header-actions">
@@ -27,8 +24,6 @@ export default function AppHeader({
             ? "Light mode"
             : "Dark mode"}
         </button>
-
-        
 
         <button
           type="button"

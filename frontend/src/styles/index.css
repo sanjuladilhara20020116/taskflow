@@ -1357,3 +1357,50 @@ textarea {
     height: 90px;
   }
 }
+/* -------------------------------------------------
+   Dashboard header logo size fix
+   Keeps the login logo and all other styles unchanged.
+-------------------------------------------------- */
+
+.app-header {
+  min-height: 76px;
+}
+
+.app-header .header-brand {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: 180px !important;
+  max-width: 180px !important;
+  height: 54px;
+  overflow: hidden;
+}
+
+.app-header .header-logo-image {
+  display: block;
+  width: 170px !important;
+  max-width: 170px !important;
+  height: 52px !important;
+  max-height: 52px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  flex-shrink: 0;
+  filter: drop-shadow(
+    0 7px 14px rgba(30, 40, 70, 0.12)
+  );
+}
+
+@media (max-width: 620px) {
+  .app-header .header-brand {
+    width: 145px !important;
+    max-width: 145px !important;
+    height: 46px;
+  }
+
+  .app-header .header-logo-image {
+    width: 140px !important;
+    max-width: 140px !important;
+    height: 44px !important;
+    max-height: 44px !important;
+  }
+}
