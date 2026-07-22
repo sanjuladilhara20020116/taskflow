@@ -118,17 +118,12 @@ export default function LoginPage() {
 
       <section className="login-showcase">
         <div className="brand-area login-brand">
-          <div className="brand-mark">TF</div>
-
-          <div>
-            <h1 className="brand-name">
-              TaskFlow
-            </h1>
-            <p className="brand-subtitle">
-              Personal productivity workspace
-            </p>
-          </div>
-        </div>
+  <img
+    src="/images/taskflow.png"
+    alt="Task management system logo"
+    className="login-logo-image"
+  />
+</div>
 
         <div className="showcase-content">
           <p className="hero-label">
@@ -147,41 +142,10 @@ export default function LoginPage() {
             {loginMessages[messageIndex]}
           </p>
 
-          <div className="login-time-card">
-            <strong>
-              {currentTime.toLocaleTimeString([], {
-                hour: "2-digit",
-                minute: "2-digit",
-              })}
-            </strong>
-
-            <span>
-              {currentTime.toLocaleDateString([], {
-                weekday: "long",
-                day: "numeric",
-                month: "long",
-                year: "numeric",
-              })}
-            </span>
-          </div>
+          
         </div>
 
-        <div className="showcase-metrics">
-          <div>
-            <strong>5</strong>
-            <span>Dashboard insights</span>
-          </div>
-
-          <div>
-            <strong>3</strong>
-            <span>Priority levels</span>
-          </div>
-
-          <div>
-            <strong>1</strong>
-            <span>Focused workspace</span>
-          </div>
-        </div>
+       
       </section>
 
       <section className="login-form-section">
@@ -194,8 +158,7 @@ export default function LoginPage() {
             <h2>Welcome back</h2>
 
             <p>
-              Sign in using the assessment
-              administrator account.
+              Sign in using your credentials.
             </p>
           </div>
 
@@ -243,20 +206,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="default-login-card">
-            <div>
-              <span>Default account</span>
-              <strong>admin@test.com</strong>
-              <small>Password: 123456</small>
-            </div>
-
-            <button
-              type="button"
-              onClick={useDefaultCredentials}
-            >
-              Use credentials
-            </button>
-          </div>
+          
         </div>
       </section>
     </main>
