@@ -28,14 +28,7 @@ export default function AppHeader({
             : "Dark mode"}
         </button>
 
-        <div className="user-summary">
-          <span className="user-name">
-            {user?.name}
-          </span>
-          <span className="user-email">
-            {user?.email}
-          </span>
-        </div>
+        
 
         <button
           type="button"

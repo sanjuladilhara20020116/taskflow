@@ -1,48 +1,32 @@
-import {
-  Navigate,
-  Route,
-  Routes,
-} from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
-import DashboardPage from "./pages/DashboardPage";
-import LoginPage from "./pages/LoginPage";
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import App from "./App.jsx";
+import { AuthProvider } from "./context/AuthContext.jsx";
+import "./styles/index.css";
 
-export default function App() {
-  return (
-    <Routes>
-      <Route
-        path="/login"
-        element={<LoginPage />}
-      />
+const rootElement = document.getElementById("root");
 
-      <Route
-        path="/dashboard"
-        element={
-          <ProtectedRoute>
-            <DashboardPage />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/"
-        element={
-          <Navigate
-            to="/dashboard"
-            replace
-          />
-        }
-      />
-
-      <Route
-        path="*"
-        element={
-          <Navigate
-            to="/dashboard"
-            replace
-          />
-        }
-      />
-    </Routes>
+if (!rootElement) {
+  throw new Error(
+    "The root element is missing from index.html."
   );
 }
+
+createRoot(rootElement).render(
+  <StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <App />
+
+        <Toaster
+          position="top-right"
+          toastOptions={{
+            duration: 3500,
+          }}
+        />
+      </AuthProvider>
+    </BrowserRouter>
+  </StrictMode>
+);
