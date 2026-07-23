@@ -1,0 +1,84 @@
+@layer theme, base, components, utilities;
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities);
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Smooth zoom effect for each automatic hero background image. */
+.taskflow-hero-slide {
+  animation: taskflowHeroZoom 7s ease-out both;
+  will-change: opacity, transform;
+}
+
+/* Animates the hero text when the active slide changes. */
+.taskflow-hero-copy {
+  animation: taskflowHeroCopy 0.75s ease both;
+}
+
+/* Soft grid texture placed above the hero background. */
+.taskflow-grid-overlay {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 52px 52px;
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 18%,
+    black 82%,
+    transparent
+  );
+}
+
+/* Small fade animation for the changing productivity message. */
+.taskflow-message-change {
+  animation: taskflowMessageChange 0.45s ease both;
+}
+
+@keyframes taskflowHeroZoom {
+  from {
+    transform: scale(1.06);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes taskflowHeroCopy {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes taskflowMessageChange {
+  from {
+    opacity: 0;
+    transform: translateY(7px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .taskflow-hero-slide,
+  .taskflow-hero-copy,
+  .taskflow-message-change {
+    animation: none;
+  }
+}

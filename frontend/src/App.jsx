@@ -3,13 +3,19 @@ import {
   Route,
   Routes,
 } from "react-router-dom";
-import ProtectedRoute from "./components/ProtectedRoute";
-import DashboardPage from "./pages/DashboardPage";
-import LoginPage from "./pages/LoginPage";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import DashboardPage from "./pages/DashboardPage.jsx";
+import HomePage from "./pages/HomePage.jsx";
+import LoginPage from "./pages/LoginPage.jsx";
 
 export default function App() {
   return (
     <Routes>
+      <Route
+        path="/"
+        element={<HomePage />}
+      />
+
       <Route
         path="/login"
         element={<LoginPage />}
@@ -25,22 +31,9 @@ export default function App() {
       />
 
       <Route
-        path="/"
-        element={
-          <Navigate
-            to="/dashboard"
-            replace
-          />
-        }
-      />
-
-      <Route
         path="*"
         element={
-          <Navigate
-            to="/dashboard"
-            replace
-          />
+          <Navigate to="/" replace />
         }
       />
     </Routes>
