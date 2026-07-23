@@ -8,18 +8,29 @@ import apiClient from "../api/apiClient";
 
 const AuthContext = createContext(null);
 
-export function AuthProvider({ children }) {
-  const [token, setToken] = useState(() =>
-    localStorage.getItem("task_manager_token")
-  );
-
-  const [user, setUser] = useState(() => {
+// Safely read the user saved in local storage.
+const getStoredUser = () => {
+  try {
     const savedUser = localStorage.getItem(
       "task_manager_user"
     );
 
     return savedUser ? JSON.parse(savedUser) : null;
-  });
+  } catch (error) {
+    // Remove broken saved authentication data.
+    localStorage.removeItem("task_manager_user");
+    localStorage.removeItem("task_manager_token");
+
+    return null;
+  }
+};
+
+export function AuthProvider({ children }) {
+  const [token, setToken] = useState(() =>
+    localStorage.getItem("task_manager_token")
+  );
+
+  const [user, setUser] = useState(getStoredUser);
 
   // Send login credentials to the backend.
   const login = async (credentials) => {
@@ -49,7 +60,7 @@ export function AuthProvider({ children }) {
     return response.data;
   };
 
-  // Logout removes the stateless JWT from the browser.
+  // Remove authentication details from the browser.
   const logout = () => {
     localStorage.removeItem("task_manager_token");
     localStorage.removeItem("task_manager_user");
