@@ -27,8 +27,7 @@ export default function LoginPage() {
 
   const [loading, setLoading] = useState(false);
 
-  const [currentTime, setCurrentTime] =
-    useState(new Date());
+  
 
   const [messageIndex, setMessageIndex] =
     useState(0);
