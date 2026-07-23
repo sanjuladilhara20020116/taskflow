@@ -433,45 +433,6 @@ using responsive layouts built with Tailwind CSS.
 
 ---
 
-# 🚀 Future Improvements
-
-- Email Verification
-- Password Reset
-- Task Categories
-- Labels & Tags
-- Calendar View
-- Kanban Board
-- Team Collaboration
-- Role-Based Access Control
-- Task Attachments
-- Due Date Notifications
-- Email Notifications
-- Activity Logs
-- Dashboard Charts
-- Export Tasks (PDF / Excel)
-- Cloud Deployment
-- Docker Support
-
----
-
-# 📸 Screenshots
-
-> Add screenshots here.
-
-```
-Home Page
-
-Dashboard
-
-Create Task
-
-Dark Mode
-
-Mobile View
-```
-
----
-
 # 👨‍💻 Developed By
 
 **Sanjula Dilhara**
